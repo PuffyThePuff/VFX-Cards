@@ -12,6 +12,9 @@ public class PlayAnim : MonoBehaviour
 
     private float ticks = 0f;
 
+    [SerializeField] public List<GameObject> firelist;
+    [SerializeField] public List<GameObject> waterlist;
+    [SerializeField] public List<GameObject> lightninglist;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +47,51 @@ public class PlayAnim : MonoBehaviour
         
     }
 
+    public void ActiveParticle(int num)
+    {
+        setallInactive();
+        switch (num)
+        {
+            case 1:
+                foreach (var go in firelist)
+                {
+                    go.SetActive(true);
+                }
+                break;
+            case 2:
+                foreach (var go in waterlist)
+                {
+                    go.SetActive(true);
+                }
+                break;
+            case 3:
+                foreach (var go in lightninglist)
+                {
+                    go.SetActive(true);
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
 
 
-
+    private void setallInactive()
+    {
+        foreach (var go in firelist)
+        {
+            go.SetActive(false);
+        }
+        
+        foreach (var go in waterlist)
+        {
+            go.SetActive(false);
+        }
+       
+        foreach (var go in lightninglist)
+        {
+            go.SetActive(false);
+        }
+    }
 }
