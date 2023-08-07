@@ -15,6 +15,9 @@ public class PlayAnim : MonoBehaviour
     [SerializeField] public List<GameObject> firelist;
     [SerializeField] public List<GameObject> waterlist;
     [SerializeField] public List<GameObject> lightninglist;
+    [SerializeField] public List<GameObject> windlist;
+    [SerializeField] public List<GameObject> fireworklist;
+    [SerializeField] public List<GameObject> energylist;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +73,24 @@ public class PlayAnim : MonoBehaviour
                     go.SetActive(true);
                 }
                 break;
+            case 4:
+                foreach (var go in windlist)
+                {
+                    go.SetActive(true);
+                }
+                break;
+            case 5:
+                foreach (var go in fireworklist)
+                {
+                    go.SetActive(true);
+                }
+                break;
+            case 6:
+                foreach (var go in energylist)
+                {
+                    go.SetActive(true);
+                }
+                break;
             default:
                 break;
         }
@@ -90,6 +111,18 @@ public class PlayAnim : MonoBehaviour
         }
        
         foreach (var go in lightninglist)
+        {
+            go.SetActive(false);
+        }
+        foreach (var go in windlist)
+        {
+            go.SetActive(false);
+        }
+        foreach (var go in fireworklist)
+        {
+            go.SetActive(false);
+        }
+        foreach (var go in energylist)
         {
             go.SetActive(false);
         }
